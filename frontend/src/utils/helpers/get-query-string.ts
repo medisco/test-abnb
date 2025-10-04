@@ -7,5 +7,5 @@ export const getQueryString = (queryParamsObj: object | null) => {
       queryParams.push(`${key}=${value}`);
     }
   }
-  return queryParams.length > 0 ? `?${queryParams.join(',')}` : '';
+  return queryParams.length > 0 ? `?${queryParams.join('&')}` : '';
 };
