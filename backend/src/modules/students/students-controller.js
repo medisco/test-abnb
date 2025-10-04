@@ -13,14 +13,14 @@ const handleGetAllStudents = asyncHandler(async (req, res) => {
 });
 
 const handleAddStudent = asyncHandler(async (req, res) => {
-    const student = await addNewStudent(req.body);
-    res.json({ student });
+    const message = await addNewStudent(req.body);
+    res.json(message);
 });
 
 const handleUpdateStudent = asyncHandler(async (req, res) => {
     const updatePayload = { userId: req.params.id, ...req.body };
-    const result = await updateStudent(updatePayload);
-    res.json(result);
+    const message = await updateStudent(updatePayload);
+    res.json(message);
 });
 
 const handleGetStudentDetail = asyncHandler(async (req, res) => {
@@ -34,8 +34,8 @@ const handleStudentStatus = asyncHandler(async (req, res) => {
         reviewerId: req.user.id, 
         status: req.body.status
     };
-    const student = await setStudentStatus(statusPayload);
-    res.json({ student });
+    const message = await setStudentStatus(statusPayload);
+    res.json(message);
 });
 
 module.exports = {
